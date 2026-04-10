@@ -25,7 +25,6 @@ npm install
 npm run dev
 ```
 
-在瀏覽器中打開 [http://localhost:3000](http://localhost:3000) 查看結果。
 
 ### 構建生產版本
 
