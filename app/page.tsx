@@ -60,6 +60,7 @@ export default function Home() {
             year: '2026',
             events: [
               'SITCON 學生計算機年會（工人）',
+              '東吳大學數學系科技部學生兼任助理',
             ],
           },
           {
