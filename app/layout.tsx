@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '邱渝珊 | Yu-Shan Chiu - Portfolio |雪',
+  title: '邱渝珊 | Yu-Shan Chiu - Portfolio',
   description: '充滿熱情的跨領域學習者 - 個人履歷網站',
 }
 
