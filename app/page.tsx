@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 export default function Home() {
   const [language, setLanguage] = useState<'zh' | 'en'>('zh')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const content = {
     zh: {
@@ -227,67 +228,75 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex space-x-6">
-              <a href="#about" className="text-gray-700 hover:text-blue-600 transition">
-                {t.nav.about}
-              </a>
-              <a href="#experience" className="text-gray-700 hover:text-blue-600 transition">
-                {t.nav.experience}
-              </a>
-              <a href="#skills" className="text-gray-700 hover:text-blue-600 transition">
-                {t.nav.skills}
-              </a>
-              <a href="#projects" className="text-gray-700 hover:text-blue-600 transition">
-                {t.nav.projects}
-              </a>
-              <a href="#services" className="text-gray-700 hover:text-blue-600 transition">
-                {t.nav.services}
-              </a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">
-                {t.nav.contact}
-              </a>
+            {/* Desktop nav links */}
+            <div className="hidden md:flex space-x-6">
+              <a href="#about" className="text-gray-700 hover:text-blue-600 transition">{t.nav.about}</a>
+              <a href="#experience" className="text-gray-700 hover:text-blue-600 transition">{t.nav.experience}</a>
+              <a href="#skills" className="text-gray-700 hover:text-blue-600 transition">{t.nav.skills}</a>
+              <a href="#projects" className="text-gray-700 hover:text-blue-600 transition">{t.nav.projects}</a>
+              <a href="#services" className="text-gray-700 hover:text-blue-600 transition">{t.nav.services}</a>
+              <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">{t.nav.contact}</a>
             </div>
+            {/* Mobile hamburger */}
+            <button
+              className="md:hidden p-2 rounded text-gray-700 hover:text-blue-600"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {menuOpen
+                  ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
+              </svg>
+            </button>
             <div className="flex space-x-2">
               <button
                 onClick={() => setLanguage('zh')}
-                className={`px-3 py-1 rounded ${
-                  language === 'zh'
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                }`}
+                className={`px-3 py-1 rounded text-sm ${language === 'zh' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
               >
                 中文
               </button>
               <button
                 onClick={() => setLanguage('en')}
-                className={`px-3 py-1 rounded ${
-                  language === 'en'
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                }`}
+                className={`px-3 py-1 rounded text-sm ${language === 'en' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
               >
-                English
+                EN
               </button>
             </div>
           </div>
         </div>
+        {/* Mobile dropdown */}
+        {menuOpen && (
+          <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 px-4 py-3 flex flex-col space-y-3">
+            {(['about', 'experience', 'skills', 'projects', 'services', 'contact'] as const).map((key) => (
+              <a
+                key={key}
+                href={`#${key}`}
+                className="text-gray-700 hover:text-blue-600 transition py-1"
+                onClick={() => setMenuOpen(false)}
+              >
+                {t.nav[key]}
+              </a>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
+      <section className="pt-24 pb-10 md:pt-32 md:pb-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-3xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
             {t.hero.name}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-6">{t.hero.nickname}</p>
-          <p className="text-2xl md:text-3xl text-gray-800 font-semibold">{t.hero.title}</p>
+          <p className="text-base md:text-2xl text-gray-600 mb-6">{t.hero.nickname}</p>
+          <p className="text-lg md:text-3xl text-gray-800 font-semibold">{t.hero.title}</p>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4">
+      <section id="about" className="py-10 md:py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">{t.about.title}</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-6 md:mb-8 text-center">{t.about.title}</h2>
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
             <p className="text-lg text-gray-700 leading-relaxed">{t.about.description}</p>
           </div>
@@ -295,9 +304,9 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-4 bg-white/30">
+      <section id="experience" className="py-10 md:py-20 px-4 bg-white/30">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12 text-center">{t.experience.title}</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-6 md:mb-12 text-center">{t.experience.title}</h2>
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 to-purple-400 hidden md:block" />
@@ -327,9 +336,9 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4">
+      <section id="skills" className="py-10 md:py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12 text-center">{t.skills.title}</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-6 md:mb-12 text-center">{t.skills.title}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {t.skills.list.map((skill) => (
               <div
@@ -344,9 +353,9 @@ export default function Home() {
       </section>
 
       {/* Side Projects Section */}
-      <section id="projects" className="py-20 px-4">
+      <section id="projects" className="py-10 md:py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12 text-center">{t.projects.title}</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-6 md:mb-12 text-center">{t.projects.title}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {t.projects.list.map((project, index) => (
               <a
@@ -365,7 +374,7 @@ export default function Home() {
                       {project.name}
                     </h3>
                     <p className="text-gray-600 text-sm">{project.description}</p>
-                    <span className="mt-3 inline-block text-xs text-blue-500 group-hover:underline">
+                    <span className="mt-3 inline-block text-xs text-blue-500 group-hover:underline break-all">
                       {project.url}
                     </span>
                   </div>
@@ -377,9 +386,9 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4 bg-white/30">
+      <section id="services" className="py-10 md:py-20 px-4 bg-white/30">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12 text-center">{t.services.title}</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-6 md:mb-12 text-center">{t.services.title}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {t.services.list.map((service, index) => (
               <div
@@ -399,9 +408,9 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4">
+      <section id="contact" className="py-10 md:py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12">{t.contact.title}</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-6 md:mb-12">{t.contact.title}</h2>
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
             <div className="space-y-6">
               <div>
