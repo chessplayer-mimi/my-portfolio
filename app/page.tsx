@@ -67,8 +67,8 @@ export default function Home() {
           {
             year: '2025',
             events: [
-              'SITCON 學生計算機年會（會眾）',
               'SCoML 2025 ICU 患者存活預測競賽（亞軍）',
+              'SITCON 學生計算機年會（會眾）',
               'COSCUP 開源人年會（會眾）',
               'HITCON 台灣駭客年會（會眾）',
               'QRACON 學生量子電腦計算機年會（會眾）',
@@ -77,30 +77,32 @@ export default function Home() {
           {
             year: '2024',
             events: [
-              '睿橋科技股份有限公司實習生（管理 MySQL、維護 database、擔任後端工程師）',
-              '清華大學工業工程學系實驗助理（協助研究：矽光子 Silicon Photonics、半導體微影技術 Nanolithography、半導體奈影 Semiconductor Lithography、證明 σ 與相干成像）',
+              '睿橋科技股份有限公司實習生（管理 MySQL、維護 database、實習後端工程師）',
+              '清華大學工業工程學系實驗助理（協助研究：研究矽光子 Silicon Photonics、半導體微影技術 Nanolithography、半導體奈影 Semiconductor Lithography、證明 σ 與相干成像）',
             ],
           },
           {
             year: '2023',
             events: [
               '全國高中醫療科技創意競賽（佳作）',
-              '金融知識奧林匹克競賽（團體組優勝）',
+              '金融知識奧林匹克競賽（優勝）',
+              '青年永續社會設計挑戰賽',
             ],
           },
           {
             year: '2022',
             events: [
               '全國高中閱讀心得寫作比賽（優等）',
-              '研修社會心理學（雲林科技大學技職學院教育研究所劉威德老師開設）',
+              'ewant 跨校研修社會心理學（雲林科技大學技職學院教育研究所劉威德老師開設）',
               '參加廣達《游於藝》計畫（擔任開幕主持人）',
+              '全國高中閱讀寫作比賽（優等）',
             ],
           },
           {
             year: '2021',
             events: [
-              '研修當代應用心理學（雲林科技大學技職學院教育研究所劉威德老師開設）',
-              '全國數位探究科學競賽（第三名）',
+              'ewant 跨校研修當代應用心理學（雲林科技大學技職學院教育研究所劉威德老師開設）',
+              '全國數位探究科學競賽（第三名）（磁機械的震盪與耦合）',
               '擔任閱讀領航人：正是時候讀莊子',
             ],
           },
@@ -172,8 +174,8 @@ export default function Home() {
           {
             year: '2025',
             events: [
-              'SITCON Student Computer Conference (Attendee)',
               'SCoML 2025 ICU Patient Survival Prediction Competition (Runner-up)',
+              'SITCON Student Computer Conference (Attendee)',
               'COSCUP Open Source Conference (Attendee)',
               'HITCON Taiwan Hacker Conference (Attendee)',
               'QRACON Student Quantum Computing Conference (Attendee)',
@@ -182,30 +184,32 @@ export default function Home() {
           {
             year: '2024',
             events: [
-              'Intern at Ruiqiao Technology Co., Ltd. (MySQL management, database maintenance, backend engineer)',
-              'Research Assistant at NTHU Industrial Engineering (Silicon Photonics, Nanolithography, Semiconductor Lithography)',
+              'Intern at Ruiqiao Technology Co., Ltd. (MySQL management, database maintenance, intern backend engineer)',
+              'Research Assistant at NTHU Industrial Engineering (researching Silicon Photonics, Nanolithography, Semiconductor Lithography)',
             ],
           },
           {
             year: '2023',
             events: [
               'National High School Medical Technology Creative Competition (Honorable Mention)',
-              'Financial Knowledge Olympiad (Team Excellence Award)',
+              'Financial Knowledge Olympiad (Excellence Award)',
+              'Youth Sustainable Social Design Challenge',
             ],
           },
           {
             year: '2022',
             events: [
               'National High School Reading Essay Competition (Excellent)',
-              'Studied Social Psychology (National Yunlin University of Science and Technology)',
+              'ewant Cross-School Social Psychology Course (National Yunlin University of Science and Technology)',
               'Quanta "Wandering in Arts" Program (Opening Ceremony Host)',
+              'National High School Reading & Writing Competition (Excellent)',
             ],
           },
           {
             year: '2021',
             events: [
-              'Studied Contemporary Applied Psychology (National Yunlin University of Science and Technology)',
-              'National Digital Science Inquiry Competition (3rd Place)',
+              'ewant Cross-School Contemporary Applied Psychology Course (National Yunlin University of Science and Technology)',
+              'National Digital Science Inquiry Competition (3rd Place) — Oscillation and Coupling of Magnomechanics',
               'Reading Navigator: The Right Time to Read Zhuangzi',
             ],
           },
